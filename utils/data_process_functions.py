@@ -54,6 +54,10 @@ class DataProcess:
     def read_source_json_full(spark: SparkSession,source_path: str,multiline: bool = True) -> DataFrame:
     return (spark.read.format("json").option("multiline", multiline).load(source_path))
 
+    def create_target_table_from_json(spark: SparkSession,df: DataFrame,target_table_with_cat: str):
+        print(f"Creating target table {target_table_with_cat} from JSON schema")
+        df.limit(0).write.format("delta").mode("overwrite").saveAsTable(target_table_with_cat)
+
     # UPSERT (MERGE) to output
     def perform_upsert_to_output(self,source_df_with_extra_fields: DataFrame,target_table: str,merge_key: str) -> tuple[int, int]:
         # Performs upsert operation from source to output layer
