@@ -155,18 +155,7 @@ NoSQL is evaluated primarily for the **events dataset**, which is semi-structure
 
 ---
 
-## 4. SQL vs NoSQL Decision Matrix
-
-| Dataset | SQL | NoSQL | Final Choice |
-|------|----|------|-------------|
-| Customers | ✅ | ❌ | SQL |
-| Products | ✅ | ❌ | SQL |
-| Orders | ✅ | ❌ | SQL |
-| Events | ⚠️ | ✅ | NoSQL (Document) |
-
----
-
-## 5. Why This Hybrid Approach Works
+## 4. Why This Hybrid Approach Works
 
 - **SQL** ensures:
   - Data integrity
@@ -184,7 +173,7 @@ In this project:
 
 ---
 
-## 6. Final Recommendation
+## 5. Final Recommendation
 
 | Layer | Technology | Reason |
 |-----|-----------|-------|
@@ -200,6 +189,4 @@ The data model follows **best-practice enterprise patterns**:
 - Star-schema for analytics
 - Document model for behavioral data
 - Hybrid SQL + NoSQL strategy for scalability
-
-This approach balances **performance, flexibility, and maintainability**, making it suitable for real-world data platforms.
 
