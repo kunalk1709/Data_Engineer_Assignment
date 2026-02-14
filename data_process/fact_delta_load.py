@@ -239,7 +239,7 @@ try:
         Data_Validation.validate_fields_unique(Source_Df_With_Target_Fields,["event_id"])
 
         Data_Validation.validate_fields_no_nulls(Source_Df_With_Target_Fields,["event_id", "timestamp"])
-
+ 
         # Upsert
         Records_Inserted, Records_Updated = Data_Process.perform_upsert_to_output(source_df_with_extra_fields=Source_Df_With_Target_Fields,target_table=Target_Table_with_cat,merge_key="event_id")
 
