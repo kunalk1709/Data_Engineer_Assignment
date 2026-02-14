@@ -1,0 +1,11 @@
+product_id,product_name,category,brand,cost_price,list_price
+P101,Wireless Mouse,Electronics,TechBrand,15.00,29.99
+P102,Mechanical Keyboard,Electronics,TechBrand,75.00,149.99
+P103,USB-C Cable,Accessories,CableCo,8.00,19.99
+P104,Laptop Stand,Accessories,ErgoTech,40.00,79.99
+P105,Phone Case,Accessories,ProtectPlus,4.00,9.99
+P106,Bluetooth Speaker,Electronics,SoundWave,150.00,299.99
+P107,Webcam HD,Electronics,TechBrand,25.00,49.99
+P108,Portable SSD,Electronics,DataStore,100.00,199.99
+P109,Noise Cancel Headphones,Electronics,SoundWave,200.00,399.99
+P110,Desk Organizer,Office,OrganizePro,10.00,24.99
