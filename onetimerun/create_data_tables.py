@@ -109,19 +109,19 @@ try:
     (source_layer,source_path_table,target_layer,target_table,target_table_type,load_type,last_run_timestamp,last_run_status,last_watermark,records_processed,is_active,created_timestamp,updated_timestamp)
     SELECT *
     FROM (
-        SELECT 'Raw' AS source_layer, 'customers.csv' AS source_path_table,'Silver' AS target_layer,'dim_data.tbl_dim_customer' AS target_table,
+        SELECT 'Raw' AS source_layer, 'abfss://raw@adlsacc.dfs.core.windows.net/dim_data/customers.csv' AS source_path_table,'Silver' AS target_layer,'dim_data.tbl_dim_customer' AS target_table,
             'Dim' AS target_table_type,'FullLoad' AS load_type,current_timestamp() AS last_run_timestamp,'Not_Run' AS last_run_status,NULL AS last_watermark,NULL AS records_processed,'Y' AS is_active,
             current_timestamp() AS created_timestamp,current_timestamp() AS updated_timestamp
         UNION ALL
-        SELECT 'Raw' AS source_layer,'products.csv' AS source_path_table,'Silver' AS target_layer,'dim_data.tbl_dim_product' AS target_table,
+        SELECT 'Raw' AS source_layer,'abfss://raw@adlsacc.dfs.core.windows.net/dim_data/products.csv' AS source_path_table,'Silver' AS target_layer,'dim_data.tbl_dim_product' AS target_table,
             'Dim' AS target_table_type,'FullLoad' AS load_type,current_timestamp() AS last_run_timestamp,'Not_Run' AS last_run_status,NULL AS last_watermark,NULL AS records_processed,'Y' AS is_active,
             current_timestamp() AS created_timestamp,current_timestamp() AS updated_timestamp
         UNION ALL
-        SELECT 'Raw' AS source_layer,'orders.csv' AS source_path_table,'Silver' AS target_layer,'fact_data.tbl_fact_order' AS target_table,
+        SELECT 'Raw' AS source_layer,'abfss://raw@adlsacc.dfs.core.windows.net/fact_data/orders.csv' AS source_path_table,'Silver' AS target_layer,'fact_data.tbl_fact_order' AS target_table,
             'Fact' AS target_table_type,'IncrementalLoad' AS load_type,current_timestamp() AS last_run_timestamp,'Not_Run' AS last_run_status,NULL AS last_watermark,NULL AS records_processed,'Y' AS is_active,
             current_timestamp() AS created_timestamp,current_timestamp() AS updated_timestamp
         UNION ALL
-        SELECT 'Raw' AS source_layer,'events.csv' AS source_path_table,'Silver' AS target_layer,'fact_data.tbl_fact_event' AS target_table,
+        SELECT 'Raw' AS source_layer,'abfss://raw@adlsacc.dfs.core.windows.net/fact_data/events.csv' AS source_path_table,'Silver' AS target_layer,'fact_data.tbl_fact_event' AS target_table,
             'Fact' AS target_table_type,'IncrementalLoad' AS load_type,current_timestamp() AS last_run_timestamp,'Not_Run' AS last_run_status,NULL AS last_watermark,NULL AS records_processed,'Y' AS is_active,
             current_timestamp() AS created_timestamp,current_timestamp() AS updated_timestamp
     ) AS new_records
