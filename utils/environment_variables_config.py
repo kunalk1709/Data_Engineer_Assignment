@@ -33,25 +33,14 @@ except Exception as e:
 # Check workspace url to determine environment
 if "adb-123456789.15.azuredatabricks.net" in workspace_url:
     environment = "development"
-    landing_layer_eo = "abfss://landing-eo@stdfcdevlndeo.dfs.core.windows.net/"
-    landing_layer_jo = "abfss://landing-jo@stdfcdevlndjo.dfs.core.windows.net/"
-    catalog_output_eo = "cat_dfc_dev_otp_eo"
-    catalog_output_jo = "cat_dfc_dev_otp_jo"
-    catalog_usecase = "cat_dfc_dev_uc"
+    catalog_data = "cat_data"
     catalog_system = "cat_dfc_dev_system"
-
 elif "adb-123456789.azuredatabricks.net" in workspace_url:
     environment = "production"
-    landing_layer_eo = ""
-    landing_layer_jo = ""
-    catalog_output_eo = "cat_dfc_prod_otp_eo"
-    catalog_output_jo = "cat_dfc_prod_otp_jo"
-    catalog_usecase = "cat_dfc_prod_uc"
+    catalog_data = "cat_data"
     catalog_system = "cat_dfc_prod_system"
-
 else:
     environment = "Error"
-
 print(f"Workspace URL: {workspace_url} - {environment}")
 
 # Stop execution if environment is Error
