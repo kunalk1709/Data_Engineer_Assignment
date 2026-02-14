@@ -48,6 +48,10 @@ class DataProcess:
             print(f"Error reading source data: {str(e)}")
             raise
 
+    def read_source_csv_full(spark: SparkSession,source_path: str,header: bool = True,infer_schema: bool = True,delimiter: str = ",") -> DataFrame:
+        return (spark.read.format("csv").option("header", header).option("inferSchema", infer_schema).option("delimiter", delimiter).load(source_path))
+
+
     # UPSERT (MERGE) to output
     def perform_upsert_to_output(self,source_df_with_extra_fields: DataFrame,target_table: str,merge_key: str) -> tuple[int, int]:
         # Performs upsert operation from source to output layer
